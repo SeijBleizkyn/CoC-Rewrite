@@ -1,0 +1,25 @@
+I have so far only added 2 of the key items of the game into the new code. If you want to help add the rest, here are some instructions:
+
+Go to "...\CoC_Game\Items\" and duplicate the "All-Natural Onahole" folder.
+
+Rename it to the key item's name and go into the folder. Do the same to the file within.
+
+Now open the file.
+
+Anything below the
+/* ---------------------------------------------------------------------------------------------------- */
+line is editable.
+
+Have a look at the code and try to understand roughly what is what. Read the comments to help you out. If there are some lines of code which you think has no need for the key item you are trying to edit this file into, then comment them out! This is important! Only exceptions are the functions at the end.
+
+After you are done with the item and want to add it in, whether it's for testing, or if it's finished, go to "...\CoC_Game\Items\" again.
+
+In it is a file called "ItemList.as"
+
+Simply copy and paste the next two lines of code at the bottom:
+// Item X
+include ".\\YOUR ITEM\\YOUR ITEM.as";
+
+Edit it so that the directory is correct by changing "YOUR ITEM" to the item name you have the folder and ".as" file in it.
+
+Finally, change "X" in the comment of the code to a more appropriate number.

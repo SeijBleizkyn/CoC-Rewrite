@@ -1,0 +1,17 @@
+C o r e :
+Ability			- Done for now
+Character		- Done for now
+GUI			- Done for now
+Inventory		- Done
+Item			- Done for now
+Miscellaneous		- Done for now
+Perk			- Done for now
+
+G a m e :
+Abilities		- NOT DONE
+Characters		- In Progress
+Fight scene/logic	- NOT DONE
+GUI			- Done for now | Pictures are not done.
+Items			- In Progress
+Perks			- NOT DONE
+Scenes			- In Progress

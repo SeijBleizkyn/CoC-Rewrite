@@ -1,0 +1,17 @@
+Testing is easy. I've set up a button in the main menu just for testing the effects of a key item.
+
+Do edit it to suit your purposes, go to: "...\CoC_Game\Scenes\0 - Main_Menu\"
+
+Open the "000.as" file and go all the way down to the bottom.
+
+Now I've set up lines of code where you can change the stats of the player if your item has use variations depending on stats.
+
+The other two things oyu need to change are these lines:
+[...]
+    _GAME_Characters[_GAME_ActiveCharacterID].inventory[1].AddItem(_GAME_Items[2], 1); // Add desired item to desired inventory.
+[...]
+_GAME_Items[2].Use(_GAME_Characters[_GAME_ActiveCharacterID]); // Use the item and see effect.
+
+For the first line, all you need to change is the number in "_GAME_Items[2]" near the end. The number you need to change it to is the number of the key item you've made and added. To find this out, go to "...\CoC_Game\Items\" and open the "ItemList.as" file. See which item number your item is (E.g "// Item 4"). Now go back and change the number in "_GAME_Items[2]".
+
+For the second line, it's the number "in _GAME_Items[2]" at the beginning that needs to have the number changed.
