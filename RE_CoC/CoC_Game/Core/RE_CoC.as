@@ -14,6 +14,7 @@
 
 package CoC_Game.Core
 {
+	// Engine and flash API related imports
 	import flash.display.MovieClip;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
@@ -25,13 +26,23 @@ package CoC_Game.Core
 	import fl.controls.*;
 	import CoC_Engine.Character.Character;
 	import CoC_Engine.Character.BodyPart.BodyPart;
-	import CoC_Engine.Character.BodyPart.BodyPart_Type;
-	import CoC_Engine.Character.BodyPart.BodyPart_Race;
 	import CoC_Engine.Item.Item;
-	import CoC_Engine.Item.Item_Type;
 	import CoC_Engine.Inventory.Inventory;
 	import flash.text.TextFormat;
 	import flash.display3D.IndexBuffer3D;
+	
+	// Game related imports
+	// Body part imports.
+	import CoC_Game.Body_Parts.*;
+	import CoC_Game.Body_Parts.Breast.*;
+	import CoC_Game.Body_Parts.Nipple.*;
+	import CoC_Game.Body_Parts.Penis.*;
+	import CoC_Game.Body_Parts.Testicle.*;
+	// Enumeration imports.
+	import CoC_Game.Enumerations.BodyPart.*;
+	import CoC_Game.Enumerations.Ingestable.*;
+	import CoC_Game.Enumerations.Item.*;
+	
 
  // Imports all of the CoC engine's GUI components in to be used in this class.
 	
@@ -90,6 +101,7 @@ package CoC_Game.Core
 		private var _GAME_Characters:Vector.<Character> = new Vector.<Character>();
 		private var _GAME_Items:Vector.<Item> = new Vector.<Item>();
 		private var _GAME_BodyParts:Vector.<BodyPart> = new Vector.<BodyPart>();		
+		private var _GAME_SceneRepeated:Boolean = false;
 		
 		
 		
@@ -492,9 +504,6 @@ package CoC_Game.Core
 			 // Make and load the items.
 			 include "..\\Items\\ItemList.as";
 			 
-			 // Make and load the body parts.
-			 include "..\\Body Parts\\BodyPartList.as";
-			 
 			 // Make and load the characters.
 			 include "..\\Characters\\CharacterList.as";
 			
@@ -846,10 +855,7 @@ package CoC_Game.Core
 			_GAME_Characters[0].Appearance = ""; // Setting the appearance of the character.
 			_GAME_Characters[0].BattleAppearance = ""; // Setting the appearance of the character when battling him/her/it.
 			_GAME_Characters[0].Age = 18; // Setting the age of the character.
-			_GAME_Characters[0].BodyPartList.push(_GAME_BodyParts[0]); // 0 - Breasts.
-			_GAME_Characters[0].BodyPartList.push(_GAME_BodyParts[5]); // 1 - Hip.
-			_GAME_Characters[0].BodyPartList.push(_GAME_BodyParts[4]); // 2 - Butt.
-			_GAME_Characters[0].BodyPartList.push(_GAME_BodyParts[3]); // 3 - Anus.
+			// Body parts.
 			_GAME_Characters[0].Strength = 0; // Setting the strength of the character.
 			_GAME_Characters[0].Toughness = 0; // Setting the toughness of the character.
 			_GAME_Characters[0].Speed = 0; // Setting the speed of the character.
@@ -964,6 +970,13 @@ package CoC_Game.Core
 			_GAME_StatsQueue[i] = 0;
 			_GUI_stats[i].statNum = _GAME_Characters[c].Fatigue;
 			i += 1;
+		}
+		
+		private function DoChangeScene(s:Number)
+		{
+			_GAME_SceneRepeated = false;
+			
+			_GAME_Scene = s;
 		}
 	}
 }

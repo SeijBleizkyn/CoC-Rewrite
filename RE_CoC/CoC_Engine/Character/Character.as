@@ -8,10 +8,9 @@
 
 package CoC_Engine.Character
 {
-	import CoC_Engine.Character.BodyPart.BodyPart;
-	import CoC_Engine.Character.BodyPart.BodyPart_Type;
 	import CoC_Engine.Ability.Ability;
 	import CoC_Engine.Inventory.Inventory;
+	import CoC_Engine.Character.BodyPart.Container;
 	
 	public class Character
 	{
@@ -21,7 +20,7 @@ package CoC_Engine.Character
 		protected var _Appearance:String;
 		protected var _BattleAppearance:String;
 		protected var _Age:int;
-		protected var _Body:Vector.<BodyPart> = new Vector.<BodyPart>();
+		protected var _Body:Vector.<Container> = new Vector.<Container>();
 		
 		// ------------------------------ Stats ------------------------------ //
 		protected var _Strength:Number;
@@ -148,23 +147,23 @@ package CoC_Engine.Character
 			}
 		}
 		
-		public function get BodyPartList():Vector.<BodyPart>
+		public function get BodyPartList():Vector.<Container>
 		{
 			return _Body;
 		}
 		
-		public function set BodyPartList(list:Vector.<BodyPart>)
+		public function set BodyPartList(list:Vector.<Container>)
 		{
 			_Body = list;
 		}
 		
-		public function HasBodyPart(i:int):Boolean
+		public function HasBodyPart(b:String):Boolean
 		{
 			var index:int = 0;
 			
 			for(index = 0; index < _Body.length; index += 1)
 			{
-				if(_Body[index].ID == i)
+				if(_Body[index].Name == b)
 				{
 					return true;
 				}
@@ -173,20 +172,36 @@ package CoC_Engine.Character
 			return false;
 		}
 		
-		public function FindBodyPart(i:int):BodyPart
+		public function FindBodyPart(b:String):Container
 		{
 			var index:int = 0;
 			var finalIndex:int = 0;
 			
 			for(index = 0; index < _Body.length; index += 1)
 			{
-				if(_Body[index].ID == i)
+				if(_Body[index].Name == b)
 				{
 					finalIndex = index;
 				}
 			}
 			
 			return _Body[finalIndex];
+		}
+		
+		public function FindBodyPartIndex(b:String):int
+		{
+			var index:int = 0;
+			var finalIndex:int = -1;
+			
+			for(index = 0; index < _Body.length; index += 1)
+			{
+				if(_Body[index].Name == b)
+				{
+					finalIndex = index;
+				}
+			}
+			
+			return finalIndex;
 		}
 		
 		public function get Strength():Number

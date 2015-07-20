@@ -13,48 +13,144 @@ package CoC_Engine.Character.BodyPart
 
 	public class BodyPart extends Base001
 	{
-		protected var _Type:Vector.<Vector.<String>> = new Vector.<Vector.<String>>;
-		protected var _Race:Vector.<Vector.<String>> = new Vector.<Vector.<String>>;
-		protected var _Item:Vector.<Item> = new Vector.<Item>;
+		protected var _Type:Vector.<String> = new Vector.<String>();
+		protected var _Race:Vector.<String> = new Vector.<String>();
+		protected var _Item:Item = new Item();
 		
 		public function BodyPart()
 		{
-			_ID = 0;
+			_ID = -1;
 			_Name = "";
-			_EXISTING_FUNCTIONS = 3;
-			var index = 0;
-			
-			for(index = 0; index < _EXISTING_FUNCTIONS; index += 1)
-			{
-				_Effect.push(new Function());
-			}
 		}
 		
-		public function get Type():Vector.<Vector.<String>>
+		public function get Type():Vector.<String>
 		{
 			return _Type;
 		}
 		
-		public function set Type(t:Vector.<Vector.<String>>)
+		public function set Type(t:Vector.<String>)
 		{
 			_Type = t;
 		}
-		public function get Race():Vector.<Vector.<String>>
+		
+		public function hasType(t:String):Boolean
+		{
+			var counter = 0;
+			var tempBool = false;
+			
+			if(_Type.length > 0)
+			{
+				for(counter = 0; counter < _Type.length; counter += 1)
+				{
+					if(_Type[counter] == t)
+					{
+						tempBool = true;
+					}
+				}
+			}
+			else
+			{
+				tempBool = false;
+			}
+			
+			return tempBool;
+		}
+		
+		public function findType(t:String):int
+		{
+			var counter = 0;
+			var tempInt = 0;
+			
+			if(_Type.length > 0)
+			{
+				for(counter = 0; counter < _Type.length; counter += 1)
+				{
+					if(_Type[counter] == t)
+					{
+						tempInt = counter;
+					}
+				}
+			}
+			else
+			{
+				tempInt = 0;
+			}
+			
+			return tempInt;
+		}
+		
+		public function clearType()
+		{
+			_Type = new Vector.<String>();
+		}
+		
+		public function get Race():Vector.<String>
 		{
 			return _Race;
 		}
 		
-		public function set Race(r:Vector.<Vector.<String>>)
+		public function set Race(r:Vector.<String>)
 		{
 			_Race = r;
 		}
 		
-		public function get ItemSlot():Vector.<Item>
+		public function hasRace(r:String):Boolean
+		{
+			var counter = 0;
+			var tempBool = false;
+			
+			if(_Race.length > 0)
+			{
+				for(counter = 0; counter < _Race.length; counter += 1)
+				{
+					if(_Race[counter] == r)
+					{
+						tempBool = true;
+					}
+				}
+			}
+			else
+			{
+				tempBool = false;
+			}
+			
+			return tempBool;
+		}
+		
+		public function findRace(r:String):int
+		{
+			var counter = 0;
+			var tempInt = 0;
+			
+			if(_Race.length > 0)
+			{
+				for(counter = 0; counter < _Race.length; counter += 1)
+				{
+					if(_Race[counter] == r)
+					{
+						tempInt = counter;
+					}
+				}
+			}
+			else
+			{
+				tempInt = 0;
+			}
+			
+			return tempInt;
+		}
+		
+		public function clearRace()
+		{
+			_Race = new Vector.<String>();
+		}
+		
+		public function get ItemSlot():Item
 		{
 			return _Item;
 		}
 		
-		public function set ItemSlot(i:Vector.<Item>)
+		public function set ItemSlot(i:Item)
 		{
 			_Item = i;
 		}
@@ -67,36 +163,6 @@ package CoC_Engine.Character.BodyPart
 		public function set BodyEffect(f:Vector.<Function>)
 		{
 			_Effect = f;
-		}
-		
-		public function get GetAdjective():Function
-		{
-			return _Effect[0];
-		}
-		
-		public function set GetAdjective(f:Function)
-		{
-			_Effect[0] = f;
-		}
-		
-		public function get GetNoun():Function
-		{
-			return _Effect[1];
-		}
-		
-		public function set GetNoun(f:Function)
-		{
-			_Effect[1] = f;
-		}
-		
-		public function get AddBodyPart():Function
-		{
-			return _Effect[2];
-		}
-		
-		public function set AddBodyPart(f:Function)
-		{
-			_Effect[2] = f;
 		}
 	}
 }

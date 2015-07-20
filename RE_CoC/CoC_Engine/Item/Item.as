@@ -9,7 +9,6 @@
 package CoC_Engine.Item
 {
 	import CoC_Engine.Miscellaneous.Base001;
-	import CoC_Engine.Item.Item_Type;
 
 	public class Item extends Base001
 	{
@@ -20,6 +19,7 @@ package CoC_Engine.Item
 		protected var _StackLimit:int = 0; // The maximum number of stacks of this item.
 		protected var _Cost:int = 0;
 		protected var _Type:Vector.<String> = new Vector.<String>();
+		protected var _IngestType:Vector.<String> = new Vector.<String>();
 		
 		public function Item()
 		{
@@ -135,6 +135,16 @@ package CoC_Engine.Item
 		public function set Type(t:Vector.<String>)
 		{
 			_Type = t;
+		}
+		
+		public function get IngestType():Vector.<String>
+		{
+			return _IngestType;
+		}
+		
+		public function set IngestType(t:Vector.<String>)
+		{
+			_IngestType = t;
 		}
 		
 		public function get ItemEffect():Vector.<Function>

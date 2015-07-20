@@ -19,7 +19,6 @@ _GAME_Items[i].ID = i;
 _GAME_Items[i].Name = "Beautiful Sword"; // The name of the item.
 _GAME_Items[i].CodeName = "B.Sword"; // The code name of the item. What shows up on the buttons.
 
-// _GAME_Items[i].Value.push(new Vector.<Number>());
 // _GAME_Items[i].Value.push(0);
 /* --------------------------------------------------
  * If the item has any effects, and you need to store
@@ -29,14 +28,11 @@ _GAME_Items[i].CodeName = "B.Sword"; // The code name of the item. What shows up
  * 
  * For example: If a consumable item gives 5 strength
  * and 10 speed when consumed, then you can add these
- * values by using this "Value[0].push()".
+ * values by using this "Value.push()".
  * 
  * This is how you do it:
- * First:
- * _GAME_Items[i].Value.push(new Vector.<Number>());
- * Second:
- * _GAME_Items[i].Value[0].push(5);
- * _GAME_Items[i].Value[0].push(10);
+ * _GAME_Items[i].Value.push(5);
+ * _GAME_Items[i].Value.push(10);
  * Now all you got to remember is the order in which
  * you have added them in. The value 5 will be in the
  * 0th spot, while 10 is in the 1st. To get them, use
@@ -44,24 +40,20 @@ _GAME_Items[i].CodeName = "B.Sword"; // The code name of the item. What shows up
  * 
  * Say you want to get the strength value that the
  * item gives, you'll want to do this:
- * _GAME_Items[i].Value[0][0];
- * as the strength value (5) is in the 0th spot of
- * the first value vector.
+ * _GAME_Items[i].Value[0];
+ * as the strength value (5) is in the 0th spot.
  * And:
- * _GAME_Items[i].Value[0][1];
- * for the speed value (10) in the 1st spot of the
- * first value vector.
+ * _GAME_Items[i].Value[1];
+ * for the speed value (10) in the 1st spot.
  * -------------------------------------------------- */
 
-// _GAME_Items[i].Flag.push(new Vector.<Boolean>());
-// _GAME_Items[i].Flag[0].push(true);
+// _GAME_Items[i].Flag.push(true);
 /* --------------------------------------------------
  * Same as above, except you're adding in boolean
  * values; true or false.
  * -------------------------------------------------- */
 
-_GAME_Items[i].Description.push(new Vector.<String>()); // 0
-_GAME_Items[i].Description[0].push("This beautiful sword shines brilliantly in the light, showing the flawless craftsmanship of its blade.  The pommel and guard are heavily decorated in gold and brass.  Some craftsman clearly poured his heart and soul into this blade.  (ATK: +Varies) (Cost: " + _GAME_Items[i].Cost + ")"); // This is what's displayed in the pop-up text.
+_GAME_Items[i].Description.push("This beautiful sword shines brilliantly in the light, showing the flawless craftsmanship of its blade.  The pommel and guard are heavily decorated in gold and brass.  Some craftsman clearly poured his heart and soul into this blade.  (ATK: +Varies) (Cost: " + _GAME_Items[i].Cost + ")"); // 0 - This is what's displayed in the pop-up text.
 
 _GAME_Items[i].Amount = 1; // The default stack amount the item has.
 _GAME_Items[i].ItemLimit = 5; // The maximum amount this item can stack in the inventory.
@@ -70,6 +62,8 @@ _GAME_Items[i].Cost = 400; // Value of the item. As in how many gems it costs.
 _GAME_Items[i].Type.push(Item_Type._EQUIPMENT); // 0 - Equipment.
 _GAME_Items[i].Type.push(Item_Type._WEAPON); // 1 - Weapon.
 _GAME_Items[i].Type.push(Item_Type._MEDIUM); // 2 - Medium weapon.
+// _GAME_Items[i].IngestType.push(Food_Type._UNKNOWN); // 0 - Unknown.
+// _GAME_Items[i].IngestType.push(Drink_Type._UNKNOWN); // 1 - Unknown.
 
 /* --------------------------------------------------
  * The functions' name should always be (for

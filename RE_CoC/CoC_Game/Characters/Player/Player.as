@@ -19,11 +19,7 @@ _GAME_Characters[i].Name = ""; // Setting the name of the character.
 _GAME_Characters[i].Appearance = ""; // Setting the appearance of the character.
 _GAME_Characters[i].BattleAppearance = ""; // Setting the appearance of the character when battling him/her/it.
 _GAME_Characters[i].Age = 18; // Setting the age of the character.
-_GAME_Characters[i].BodyPartList.push(_GAME_BodyParts[0]); // 0 - Breasts.
-_GAME_Characters[i].BodyPartList.push(_GAME_BodyParts[5]); // 1 - Hip.
-_GAME_Characters[i].BodyPartList.push(_GAME_BodyParts[4]); // 2 - Butt.
-_GAME_Characters[i].BodyPartList.push(_GAME_BodyParts[3]); // 3 - Anus.
-_GAME_Characters[i].BodyPartList.push(_GAME_BodyParts[6]); // 4 - Leg.
+//Bodyparts
 _GAME_Characters[i].Strength = 0; // Setting the strength of the character.
 _GAME_Characters[i].Toughness = 0; // Setting the toughness of the character.
 _GAME_Characters[i].Speed = 0; // Setting the speed of the character.

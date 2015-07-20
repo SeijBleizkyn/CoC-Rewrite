@@ -13,6 +13,7 @@ package CoC_Engine.Miscellaneous
 {
 	public class Base002
 	{
+		public static const _GENERIC:String	= "generic";
 		public static const _UNKNOWN:String	= "unknown";
 		
 		public function Base002()

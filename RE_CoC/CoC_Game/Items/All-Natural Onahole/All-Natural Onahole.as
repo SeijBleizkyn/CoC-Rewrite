@@ -19,10 +19,9 @@ _GAME_Items[i].ID = i;
 _GAME_Items[i].Name = "All-Natural Onahole"; // The name of the item.
 _GAME_Items[i].CodeName = "AN Onahole"; // The code name of the item. What shows up on the buttons.
 
-_GAME_Items[i].Value.push(new Vector.<Number>()); // 0
-_GAME_Items[i].Value[0].push(-1.5); // 0 - Libido loss.
-_GAME_Items[i].Value[0].push(0.75); // 1 - Sensitivity gain.
-_GAME_Items[i].Value[0].push(0.5); // 2 - Corruption gain.
+_GAME_Items[i].Value.push(-1.5); // 0 - Libido loss.
+_GAME_Items[i].Value.push(0.75); // 1 - Sensitivity gain.
+_GAME_Items[i].Value.push(0.5); // 2 - Corruption gain.
 /* --------------------------------------------------
  * If the item has any effects, and you need to store
  * the value of the effect, store it here. If it
@@ -31,14 +30,11 @@ _GAME_Items[i].Value[0].push(0.5); // 2 - Corruption gain.
  * 
  * For example: If a consumable item gives 5 strength
  * and 10 speed when consumed, then you can add these
- * values by using this "Value[0].push()".
+ * values by using this "Value.push()".
  * 
  * This is how you do it:
- * First:
- * _GAME_Items[i].Value.push(new Vector.<Number>());
- * Second:
- * _GAME_Items[i].Value[0].push(5);
- * _GAME_Items[i].Value[0].push(10);
+ * _GAME_Items[i].Value.push(5);
+ * _GAME_Items[i].Value.push(10);
  * Now all you got to remember is the order in which
  * you have added them in. The value 5 will be in the
  * 0th spot, while 10 is in the 1st. To get them, use
@@ -46,30 +42,28 @@ _GAME_Items[i].Value[0].push(0.5); // 2 - Corruption gain.
  * 
  * Say you want to get the strength value that the
  * item gives, you'll want to do this:
- * _GAME_Items[i].Value[0][0];
- * as the strength value (5) is in the 0th spot of
- * the first value vector.
+ * _GAME_Items[i].Value[0];
+ * as the strength value (5) is in the 0th spot.
  * And:
- * _GAME_Items[i].Value[0][1];
- * for the speed value (10) in the 1st spot of the
- * first value vector.
+ * _GAME_Items[i].Value[1];
+ * for the speed value (10) in the 1st spot.
  * -------------------------------------------------- */
 
-_GAME_Items[i].Flag.push(new Vector.<Boolean>()); // 0
-_GAME_Items[i].Flag[0].push(true); // 0 - First time using this item?
+_GAME_Items[i].Flag.push(true); // 0 - First time using this item?
 /* --------------------------------------------------
  * Same as above, except you're adding in boolean
  * values; true or false.
  * -------------------------------------------------- */
 
-_GAME_Items[i].Description.push(new Vector.<String>()); // 0
-_GAME_Items[i].Description[0].push("This is what is called an 'onahole'. This device is a simple textured sleeve designed to fit around the male anatomy in a pleasurable way."); // This is what's displayed in the pop-up text.
+_GAME_Items[i].Description.push("This is what is called an 'onahole'. This device is a simple textured sleeve designed to fit around the male anatomy in a pleasurable way."); // 0 - This is what's displayed in the pop-up text.
 
 _GAME_Items[i].Amount = 1; // The default stack amount the item has.
 _GAME_Items[i].ItemLimit = 1; // The maximum amount this item can stack in the inventory.
 _GAME_Items[i].StackLimit = 1; // The maximum amount of stacks of this item that can exist in the inventory. Negative value for infinite.
 _GAME_Items[i].Cost = 150; // Value of the item. As in how many gems it costs.
 _GAME_Items[i].Type.push(Item_Type._KEY); // 0 - Key item.
+// _GAME_Items[i].IngestType.push(Food_Type._UNKNOWN); // 0 - Unknown.
+// _GAME_Items[i].IngestType.push(Drink_Type._UNKNOWN); // 1 - Unknown.
 
 /* --------------------------------------------------
  * The functions' name should always be (for
@@ -91,17 +85,17 @@ function All_Natural_Onahole_Use(c:Character)
 	
 	var index:int = 1;
 	
-	_GAME_StatsQueue[4]	+= _GAME_Items[index].Value[0][0];
-	c.Libido			+= _GAME_Items[index].Value[0][0];
-	_GAME_StatsQueue[5]	+= _GAME_Items[index].Value[0][1];
-	c.Sensitivity		+= _GAME_Items[index].Value[0][1];
-	_GAME_StatsQueue[6]	+= _GAME_Items[index].Value[0][2];
-	c.Corruption		+= _GAME_Items[index].Value[0][2];
+	_GAME_StatsQueue[4]	+= _GAME_Items[index].Value[0];
+	c.Libido			+= _GAME_Items[index].Value[0];
+	_GAME_StatsQueue[5]	+= _GAME_Items[index].Value[1];
+	c.Sensitivity		+= _GAME_Items[index].Value[1];
+	_GAME_StatsQueue[6]	+= _GAME_Items[index].Value[2];
+	c.Corruption		+= _GAME_Items[index].Value[2];
 	
 	// If it's the first time using this item for this character...
-	if(c.inventory[1].FindItem[index].Flag[0][0])
+	if(c.inventory[1].FindItem[index].Flag[0])
 	{
-		c.inventory[1].FindItem(index).Flag[0][0] = false; // Set the character's key inventory's All-Natural Onahole's "first use" to false.
+		c.inventory[1].FindItem(index).Flag[0] = false; // Set the character's key inventory's All-Natural Onahole's "first use" to false.
 	}
 }
 

@@ -14,9 +14,9 @@ package CoC_Engine.Miscellaneous
 		
 		protected var _ID:int;
 		protected var _Name:String;
-		protected var _Value:Vector.<Vector.<Number>> = new Vector.<Vector.<Number>>();
-		protected var _Flag:Vector.<Vector.<Boolean>> = new Vector.<Vector.<Boolean>>();
-		protected var _Description:Vector.<Vector.<String>> = new Vector.<Vector.<String>>;
+		protected var _Value:Vector.<Number> = new Vector.<Number>();
+		protected var _Flag:Vector.<Boolean> = new Vector.<Boolean>();
+		protected var _Description:Vector.<String> = new Vector.<String>;
 		protected var _Effect:Vector.<Function> = new Vector.<Function>();
 		
 		public function Base001()
@@ -43,32 +43,32 @@ package CoC_Engine.Miscellaneous
 			_Name = n;
 		}
 		
-		public function get Value():Vector.<Vector.<Number>>
+		public function get Value():Vector.<Number>
 		{
 			return _Value;
 		}
 		
-		public function set Value(v:Vector.<Vector.<Number>>)
+		public function set Value(v:Vector.<Number>)
 		{
 			_Value = v;
 		}
 		
-		public function get Flag():Vector.<Vector.<Boolean>>
+		public function get Flag():Vector.<Boolean>
 		{
 			return _Flag;
 		}
 		
-		public function set Flag(f:Vector.<Vector.<Boolean>>)
+		public function set Flag(f:Vector.<Boolean>)
 		{
 			_Flag = f;
 		}
 		
-		public function get Description():Vector.<Vector.<String>>
+		public function get Description():Vector.<String>
 		{
 			return _Description;
 		}
 		
-		public function set Description(d:Vector.<Vector.<String>>)
+		public function set Description(d:Vector.<String>)
 		{
 			_Description = d;
 		}

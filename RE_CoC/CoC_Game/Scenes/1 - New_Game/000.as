@@ -65,10 +65,21 @@ _GUI_mainText.htmlText = tempString;
 
 
 // Things to keep happening in this scene.
-_GUI_inputText.x = 220.0;
-_GUI_inputText.y = 225.0;
-resetPlayer();
-setActiveCharacterID(_GAME_ActiveCharacterID);
+// Things...
+
+
+
+// Things to happen only once upon entering this scene.
+if(!(_GAME_SceneRepeated))
+{
+	_GAME_SceneRepeated = true;
+	
+	_GUI_inputText.x = 220.0;
+	_GUI_inputText.y = 225.0;
+	resetPlayer();
+	setActiveCharacterID(_GAME_ActiveCharacterID);
+	trace("hapened");
+}
 
 
 
@@ -78,7 +89,7 @@ switch(_GAME_ButtonPressed)
 	case 0:
 	{
 		_GUI_inputText.text = "";
-		_GAME_Scene = 1.000;
+		DoChangeScene(1.000);
 		break;
 	}
 	case 1:
@@ -108,7 +119,7 @@ switch(_GAME_ButtonPressed)
 		_GAME_Characters[0].Name = _GUI_inputText.text;
 		_GUI_inputText.text = "";
 		_GUI_playerName.htmlText = "<p><font size='22'><b>Name: " + _GAME_Characters[0].Name + "</b></font></p>";
-		_GAME_Scene = 1.001;
+		DoChangeScene(1.001);
 		break;
 	}
 	case 7:
@@ -145,9 +156,11 @@ switch(_GAME_ButtonPressed)
 	}
 	case 15:
 	{
+		_GAME_SceneRepeated = false;
+		
 		_GUI_inputText.x = -100.0;
 		_GUI_inputText.y = -100.0;
-		_GAME_Scene = 0.000;
+		DoChangeScene(0.000);
 		break;
 	}
 }

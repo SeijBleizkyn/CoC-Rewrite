@@ -79,6 +79,16 @@ _GUI_mainText.htmlText = tempString;
 
 
 // Things to keep happening in this scene.
+// Things...
+
+
+
+// Things to happen only once upon entering this scene.
+if(!(_GAME_SceneRepeated))
+{
+	_GAME_SceneRepeated = true;
+	// Things...
+}
 
 
 
@@ -88,7 +98,7 @@ switch(_GAME_ButtonPressed)
 	case 0:
 	{
 		_GUI_inputText.text = "";
-		_GAME_Scene = 1.000;
+		DoChangeScene(1.000);
 		break;
 	}
 	case 1:

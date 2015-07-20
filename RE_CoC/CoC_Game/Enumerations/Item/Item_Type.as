@@ -5,7 +5,7 @@
  * Code rewritten by Seij Bleizkyn.
  * ---------------------------------------------------------------------------------------------------- */
 
-package CoC_Engine.Item
+package CoC_Game.Enumerations.Item
 {
 	import CoC_Engine.Miscellaneous.Base002;
 

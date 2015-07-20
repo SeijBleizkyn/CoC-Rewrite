@@ -66,6 +66,16 @@ _GUI_mainText.htmlText = tempString;
 
 
 // Things to keep happening in this scene.
+// Things...
+
+
+
+// Things to happen only once upon entering this scene.
+if(!(_GAME_SceneRepeated))
+{
+	_GAME_SceneRepeated = true;
+	// Things...
+}
 
 
 
@@ -74,7 +84,7 @@ switch(_GAME_ButtonPressed)
 {
 	case 0:
 	{
-		_GAME_Scene = 1.000;
+		DoChangeScene(1.000);
 		break;
 	}
 	case 1:
@@ -102,14 +112,14 @@ switch(_GAME_ButtonPressed)
 	{
 		_GAME_Characters[0].Height = 71.0;
 		_GAME_Characters[0].BodyPartList.push(_GAME_BodyParts[1]); // Add a penis.
-		_GAME_Scene = 1.002;
+		DoChangeScene(1.002);
 		break;
 	}
 	case 7:
 	{
 		_GAME_Characters[0].Height = 67.0;
 		_GAME_Characters[0].BodyPartList.push(_GAME_BodyParts[2]); // Add a vagina.
-		_GAME_Scene = 1.003;
+		DoChangeScene(1.003);
 		break;
 	}
 	case 8:
@@ -142,7 +152,7 @@ switch(_GAME_ButtonPressed)
 	}
 	case 15:
 	{
-		_GAME_Scene = 0.000;
+		DoChangeScene(0.000);
 		break;
 	}
 }
